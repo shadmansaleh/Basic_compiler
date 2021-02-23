@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 
-basic_return basic_run(char *fn, char * buff)
+struct basic_return basic_run(char *fn, char * buff)
 {
   printf("%s\n", buff);
   struct basic_return return_val;

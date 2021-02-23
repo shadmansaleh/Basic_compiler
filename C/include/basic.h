@@ -13,5 +13,4 @@ struct basic_return{
   struct error_code error_msg;
 };
 
-basic_return basic_run(char *fn, char * buff);
-
+struct basic_return basic_run(char *fn, char * buff);
