@@ -7,11 +7,13 @@
 int main()
 {
   char *buff = (char*)malloc(1024 * sizeof(char));
-  while(1){
-    printf("Basic > ");
-    scanf("%s", buff);
-    if (strcmp(buff, "Exit") == 0) break;
+  printf("Basic > ");
+  while(fgets(buff, 1024, stdin))
+  {
+    // Main loop
+    if (strcmp(buff, "Exit\n") == 0) break;
     basic_run("<stdin>", buff);
+    printf("Basic > ");
   }
   free(buff);
   return 0;
