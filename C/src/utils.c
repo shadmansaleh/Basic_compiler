@@ -91,28 +91,28 @@ void print_token(struct token* token)
   switch(token->type)
   {
     case TT_PLUS:
-      printf("[PLUS, +]\n");
+      printf("[PLUS]");
       break;
     case TT_MINUS:
-      printf("[MINUS, -]\n");
+      printf("[MINUS]");
       break;
     case TT_MUL:
-      printf("[MUL, *]\n");
+      printf("[MUL]");
       break;
     case TT_DIV:
-      printf("[DIV, /]\n");
+      printf("[DIV]");
       break;
     case TT_LPARAN:
-      printf("[LPARAN, (]\n");
+      printf("[LPARAN]");
       break;
     case TT_RPARAN:
-      printf("[RPARAN, )]\n");
+      printf("[RPARAN]");
       break;
     case TT_INT:
-      printf("[INT, %i]\n", *(int*)token->value);
+      printf("[INT, %i]", *(int*)token->value);
       break;
     case TT_FLOAT:
-      printf("[FLOAT, %f]\n", *(float*)token->value);
+      printf("[FLOAT, %g]", *(float*)token->value);
       break;
   }
 }
@@ -120,7 +120,7 @@ void print_token(struct token* token)
 void print_token_list(struct token_list *tokens)
 {
   if (!tokens) return;
-  puts("{");
+  putchar('{');
   while (tokens != NULL)
   {
     print_token(tokens->token);
