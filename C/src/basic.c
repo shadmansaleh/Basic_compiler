@@ -7,10 +7,10 @@
 
 // Runs the lexer and prints tokens for now .
 // Planed to work as base of parsing and execitimg in furture
-struct basic_return basic_run(char *fn, char * buff)
+struct basic_return basic_run(char * text, char *fname)
 {
   // gets token list from lexer
-  struct token_list *tokens = make_tokens(buff);
+  struct token_list *tokens = make_tokens(text, fname);
   // prints token list
   print_token_list(tokens);
   clear_token_list(tokens);

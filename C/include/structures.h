@@ -27,4 +27,5 @@ struct position {
   int line_no;
   int column_no;
   char current_char;
+  char *file_name;
 };

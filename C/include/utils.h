@@ -13,3 +13,4 @@ void clear_token_list(struct token_list * token);
 void print_token(struct token* token);
 // prints ei\ntire list of tokens
 void print_token_list(struct token_list *tokens);
+void display_error(char *text, char *error_type, char *error_msg, struct position *pos);

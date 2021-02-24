@@ -13,5 +13,5 @@ enum TOKEN_TYPES{
 };
 
 // Creates list of tokens from text (Lexer)
-struct token_list *make_tokens(char *text);
-struct basic_return basic_run(char *fn, char * buff);
+struct token_list *make_tokens(char *text, char *fame);
+struct basic_return basic_run(char *text, char *fname);

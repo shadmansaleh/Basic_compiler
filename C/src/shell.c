@@ -12,7 +12,7 @@ int main()
   {
     // Main loop
     if (strcmp(buff, "Exit\n") == 0) break;
-    basic_run("<stdin>", buff);
+    basic_run(buff, "<stdin>");
     printf("Basic > ");
   }
   free(buff);

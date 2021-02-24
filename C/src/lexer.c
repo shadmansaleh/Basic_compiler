@@ -11,7 +11,7 @@ struct token_list *add_token(struct token_list *last_entry,
     int token_type, void *token_val);
 
 // Creates a lint of tokens from text
-struct token_list *make_tokens(char *text)
+struct token_list *make_tokens(char *text, char *fname)
 {
   // Preparation
   struct token_list *first_item = (struct token_list*)malloc(sizeof(struct token_list));
@@ -22,6 +22,7 @@ struct token_list *make_tokens(char *text)
   pos.column_no = 0;
   pos.line_no = 0;
   pos.current_char = text[pos.idx];
+  pos.file_name = fname;
   int has_ended = 0;
   while(pos.current_char != '\0' && !has_ended){
     if (isspace(pos.current_char)) advance_position(&pos, text);
@@ -57,7 +58,9 @@ struct token_list *make_tokens(char *text)
       last_item = add_token(last_item, TT_RPARAN, NULL);
       advance_position(&pos, text);
     }else{
-      printf("Error in tokenizer %c not expected\n", pos.current_char);
+      char msg[256];
+      sprintf(msg, "Error in tokenizer %c not expected\n", pos.current_char);
+      display_error(text, "Unknown Character", msg, &pos);
       advance_position(&pos, text);
       free(last_item);
       second_last_item->next = NULL;
