@@ -7,7 +7,8 @@
 int main()
 {
   char *buff = (char*)malloc(1024 * sizeof(char));
-  printf("Basic > ");
+  memset(buff, '\0', 1024);
+  printf(">>> ");
   while(fgets(buff, 1024, stdin))
   {
     // Main loop

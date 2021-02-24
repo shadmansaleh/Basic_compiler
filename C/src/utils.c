@@ -40,7 +40,7 @@ size_t getline_from_text(char *text, struct position *pos, char *output, size_t 
 {
   int line_start = pos->idx - pos->column_no;
   int size = 0;
-  for (size = 0; (text[size] != '\n' || text[size] != '\0') && size < len; ++size )
+  for (size = 0; (text[size] != '\n' || text[size] != '\0') && size < len - 1; ++size )
   {
     output[size] = text[line_start + size];
   }

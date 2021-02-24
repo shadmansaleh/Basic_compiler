@@ -15,6 +15,8 @@ struct token_list *make_tokens(char *text, char *fname)
 {
   // Preparation
   struct token_list *first_item = (struct token_list*)malloc(sizeof(struct token_list));
+  first_item->token = NULL;
+  first_item->next = NULL;
   struct token_list *last_item = first_item;
   struct token_list *second_last_item = last_item;
   struct position pos;
@@ -58,11 +60,11 @@ struct token_list *make_tokens(char *text, char *fname)
       last_item = add_token(last_item, TT_RPARAN, NULL);
       advance_position(&pos, text);
     }else{
-      char msg[256];
+      char msg[50];
       sprintf(msg, "Error in tokenizer %c not expected\n", pos.current_char);
       display_error(text, "Unknown Character", msg, &pos);
       advance_position(&pos, text);
-      free(last_item);
+      if (last_item != first_item) free(last_item);
       second_last_item->next = NULL;
       clear_token_list(first_item);
       return NULL;
